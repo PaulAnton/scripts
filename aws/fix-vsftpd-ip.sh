@@ -1,9 +1,6 @@
 #!/bin/bash
 
-# For use with my show-ip.php script, see http://davidsj.co.uk/linux/auto-fixing-passive-ftp-on-aws-instances/
-hostname='ip.domain.com'
-
-newip=`/usr/bin/curl -s $hostname`
+newip=`/usr/bin/curl -s http://169.254.169.254/latest/meta-data/public-ipv4`
 
 /bin/sed -ri "s/pasv_address\=([0-9]{1,3}\.){3}[0-9]{1,3}/pasv_address=$newip/" /etc/vsftpd.conf
 
