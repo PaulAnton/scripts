@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+#Be careful to install the python package: "python-whois"
+#"pip install python-whois"
+#not "pip install whois"
+
 try:
   import whois
   from dateutil import relativedelta
